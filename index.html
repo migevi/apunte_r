@@ -135,7 +135,137 @@ $(document).ready(function () {
 </div>
 <div id="empezar-y-cerrar-una-sesion-de-r" class="section level3">
 <h3>2.1 Empezar y cerrar una sesión de R</h3>
-<p>Para empezar a trabajar en R, solo es necesario ejecutar R para que se nos abra la consola. Para cerrar esta consola solo debemos teclear <em>q()</em> y luego elegir entre guardar o no guardar los datos (ambiente de trabajo). Si se decide guardar los datos, estos se guardan en una carpeta de trabajo en un archivo nombrado .Rdata. Para ver cual es la carpeta de trabajo tenemos el comando <em>getwd()</em>. También podemos cambiar la carpeta de trabajo con el comando <em>.setwd()</em> al cual debemos pasarle como argumento la dirección de la futura carpeta de trabajo.</p>
+<p>Para empezar a trabajar en R, solo es necesario ejecutar R para que se nos abra la consola. Para cerrar esta consola solo debemos teclear <strong><em>q()</em></strong> y luego elegir entre guardar o no guardar los datos (ambiente de trabajo). Si se decide guardar los datos, estos se guardan en una carpeta de trabajo en un archivo nombrado .Rdata. Para ver cual es la carpeta de trabajo tenemos el comando <strong><em>getwd()</em></strong>. También podemos cambiar la carpeta de trabajo con el comando <strong><em>setwd()</em></strong> al cual debemos pasarle como argumento la dirección de la futura carpeta de trabajo. Para guardar el ambiente de trabajo tenemos el comando <strong><em>save.image(file=“nombreArchivo.RData”)</em></strong>, y para inspeccionar lo que hay en el ambiente de trabajo se usa la instrucción <strong><em>ls()</em></strong>. Si por ejemplo existiera un objeto llamado “X”, podemos borrarlo con <strong><em>rm(X)</em></strong>, ofreciendo también la posibilidad de borrar varios objetos solamente separandolos con <strong><em>“,”</em></strong>.</p>
+</div>
+<div id="aritmetica-basica" class="section level3">
+<h3>2.2 Aritmética básica</h3>
+<p>En R, la aritmética básica es muy fácil de manipular. Existen todas las funciones matemáticas clásicas. Sus funciones son:</p>
+<p><strong><em>a + b</em></strong></p>
+<p><strong><em>a - b</em></strong></p>
+<p><strong><em>a * b</em></strong></p>
+<p><strong><em>a / b</em></strong></p>
+<p><strong><em>a ^ b</em></strong></p>
+<p><strong><em>sqrt</em></strong> <strong>raíz cuadrada</strong></p>
+<p><strong><em>abs</em></strong> <strong>valor absoluto</strong></p>
+<p><strong><em>sin, cos, tan</em></strong> <strong>funciones trigonométricas</strong></p>
+<p><strong><em>asin, acos, atan</em></strong> <strong>funciones trigonométricas inversas</strong></p>
+<p><strong><em>exp, log</em></strong> <strong>exponencial y logaritmo natural</strong></p>
+</div>
+<div id="asignacion-de-valores" class="section level3">
+<h3>2.3 Asignación de valores</h3>
+<p>Para asignar valores en R se puede utilizar el símbolo <strong><em>&lt;-</em></strong> o <strong><em>=</em></strong>.</p>
+<p><em>Ejemplo:</em></p>
+<pre class="r"><code>  x &lt;- sqrt(4)
+  y = sqrt(4)</code></pre>
+<p>Ambas variables tienen un valor de 4.</p>
+</div>
+<div id="valores-logicos" class="section level3">
+<h3>2.4 Valores lógicos</h3>
+<p>Además de operaciones aritmeticas, R también permite ejecutar operaciones lógicas:</p>
+<pre class="r"><code>x = 5
+x &gt; 2</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>y = 2 &lt; 1</code></pre>
+<p>Los operadores lógicos son</p>
+</div>
+<div id="gestion-de-vectores" class="section level3">
+<h3>2.5 Gestión de vectores</h3>
+<div id="creacion-de-vectores" class="section level4">
+<h4>2.5.1 Creación de vectores</h4>
+<p>Para crear un vector se usa el comando <em>c().</em></p>
+<pre class="r"><code>x &lt;- c(1,2,3,4,5)
+x</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>En caso de que se requiera ingresar los datos del conjunto por pantalla, se utiliza el comando <em>scan().</em></p>
+<pre class="r"><code>x &lt;- scan()</code></pre>
+<p>El comando <em>scan()</em> también puede ser utilizado si se requiere leer un vector proveniente de un archivo.</p>
+<p><strong>Por ejemplo:</strong></p>
+<p>Se debe crear un archivo de texto (.txt) y asignarle un nombre, luego escribir los valores que se quieran separados por espacio, salto de línea o tabulación, que en este caso serán 1, 2, 3, 4, 5, 6, 7, y el nombre será archivo1.txt. Se debe poner este archivo de texto en el ambiente de trabajo. Para leer el vector se utiliza el comando <em>redcell&lt;- scan(“archivo1.txt”).</em></p>
+</div>
+<div id="secuencias-numericas" class="section level4">
+<h4>2.5.2 Secuencias numéricas</h4>
+<p>Para referirse a una secuencia numerica se utiliza el carácter <em>a:b</em>, que sería <strong>desde “a” hasta “b”.</strong></p>
+<p><strong>Por ejemplo:</strong></p>
+<pre class="r"><code>x &lt;- 5:15
+x</code></pre>
+<pre><code>##  [1]  5  6  7  8  9 10 11 12 13 14 15</code></pre>
+<pre class="r"><code>y &lt;- 15:5
+y</code></pre>
+<pre><code>##  [1] 15 14 13 12 11 10  9  8  7  6  5</code></pre>
+<p>Otra manera de escribir la misma instrucción es con <em>seq(from = a, to = b).</em></p>
+<pre class="r"><code>x = seq(from = 5, to = 15)
+y = seq(from = 15, to = 5)
+
+x</code></pre>
+<pre><code>##  [1]  5  6  7  8  9 10 11 12 13 14 15</code></pre>
+<pre class="r"><code>y</code></pre>
+<pre><code>##  [1] 15 14 13 12 11 10  9  8  7  6  5</code></pre>
+<p>También se tiene la posiblidad de crear secuencias de elementos repetidos con el comando <em>rep(a, times=b)</em> o <em>rep(a,b)</em>, que sería <strong>repetir “b”&quot; veces el número “a”.</strong></p>
+<pre class="r"><code>rep(5, times = 4)</code></pre>
+<pre><code>## [1] 5 5 5 5</code></pre>
+<pre class="r"><code>rep(5,4)</code></pre>
+<pre><code>## [1] 5 5 5 5</code></pre>
+<p>A los vectores se les puede aplicar las mismas operaciones aritméticas y lógicas que se le aplica a los escalares.</p>
+</div>
+<div id="extraccion-de-los-elementos-de-un-vector" class="section level4">
+<h4>2.5.3 Extracción de los elementos de un vector</h4>
+<ol style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+</div>
+</div>
+<div id="elementos-de-programacion-en-r" class="section level3">
+<h3>2.6 Elementos de programación en R</h3>
+<p>El lenguaje R nos da la posibilidad de crear nuestras propias funciones. Para crear una nueva función en R siempre debemos empezar con:</p>
+<pre class="r"><code>  nombreFuncion &lt;- function(a,b,c,...)
+  {
+    #
+    #
+    #
+  }</code></pre>
+<p>Donde a,b,c,… son los parametros de la función.</p>
+<p><strong><em>Ejemplos:</em></strong></p>
+<pre class="r"><code>  media &lt;- function(v)
+  {
+    y = 0
+    for (i in 1:length(v))
+    {
+      y = y + v[i]
+    }
+    y = y/length(v)
+    return (y)
+  }
+
+ mediana &lt;- function(v)
+ {
+   y = sort(v)
+   if(length(y)%%2 == 0)
+   {
+     return ((y[length(y)/2]+y[(length(y)/2)+1])/2)
+   }
+   else
+   {
+     return (y[(length(y)+1)/2])
+   }
+ }
+ 
+ varianza &lt;- function(v)
+ {
+   y = 0
+   m = media(v)
+   for(i in 1:length(v)+1)
+   {
+     y = v[i] - m^2
+   }
+   return(abs(y/length(v)))
+ }
+ 
+ coefVariacion &lt;- function(v)
+ {
+   o = sqrt(varianza(v))
+   m = media(v)
+   return(o/m)
+ }</code></pre>
 </div>
 
 
